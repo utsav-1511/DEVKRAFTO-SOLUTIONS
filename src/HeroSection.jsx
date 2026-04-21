@@ -68,7 +68,7 @@ const HeroSection = () => {
       </div>
 
       {/* Right Visual Element */}
-      <div className="hidden lg:col-span-5  relative flex items-center justify-center min-h-[500px] md:min-h-[700px] overflow-visible">
+      <div className="hidden lg:col-span-5 lg:flex relative flex items-center justify-center min-h-[500px] md:min-h-[700px] overflow-visible">
             {/* Enhanced Glow for the larger presence */}
         <div className="absolute w-[150%] h-[150%] bg-[#BA9EFF]/10 rounded-full blur-[180px] -z-10 animate-pulse"></div>
   
