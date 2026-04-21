@@ -41,12 +41,12 @@ const Roadmap = () => {
 
         <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12 z-10">
           {/* Connecting Line (Desktop) */}
-          <div className="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-400/30 to-transparent -z-10"></div>
+          <div className="hidden md:block absolute top-12 left-0 w-full h-[2.5px] bg-gradient-to-r from-transparent via-purple-400/30 to-transparent -z-10"></div>
 
           {steps.map((step) => (
             <div key={step.id} className="flex flex-col items-center text-center group">
               {/* Glass Icon Container */}
-              <div className="w-24 h-24 rounded-2xl bg-white/[0.02] backdrop-blur-md flex items-center justify-center mb-8 border border-white/10 group-hover:border-purple-400/50 group-hover:bg-purple-400/[0.05] transition-all duration-500">
+              <div className="w-24 h-24 rounded-2xl bg-white/[0.02] backdrop-blur-md flex items-center justify-center mb-8 border border-purple-400/50 group-hover:border-white/90 group-hover:bg-purple-400/[0.05] transition-all duration-500">
                 <svg 
                   viewBox="0 0 24 24" 
                   className="w-10 h-10 fill-purple-400 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)] transition-all duration-500"

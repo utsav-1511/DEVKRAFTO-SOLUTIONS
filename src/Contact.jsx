@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <section className="py-32 relative bg-transparent overflow-hidden">
+    <section id="contact" className="py-32 relative bg-transparent overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
         
         {/* Left Side: Text & Contact Info */}
