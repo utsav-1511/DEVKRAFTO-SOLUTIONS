@@ -1,0 +1,19 @@
+
+@import "@fontsource/space-grotesk/600.css";
+@import "tailwindcss";
+@import "@fontsource/space-grotesk"; 
+
+/* If you have custom theme variables for v4, you add them here */
+@theme {
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
