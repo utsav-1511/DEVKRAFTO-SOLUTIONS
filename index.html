@@ -2,10 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./public/devkrafto.png" />
+    <link rel="icon" href="/devkrafto.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>DevKrafto Solutions</title>
+
+    <title>DevKrafto Solutions | Web & App Development</title>
+    <meta
+      name="description"
+      content="DevKrafto Solutions builds fast, modern websites and web apps. Design, development, SEO, performance, and ongoing support."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/devkrafto.png" />
+
+    <!-- Canonical + social sharing (set VITE_SITE_URL in .env, e.g. https://example.com) -->
+    <link rel="canonical" href="%VITE_SITE_URL%" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DevKrafto Solutions" />
+    <meta property="og:title" content="DevKrafto Solutions | Web & App Development" />
+    <meta
+      property="og:description"
+      content="DevKrafto Solutions builds fast, modern websites and web apps. Design, development, SEO, performance, and ongoing support."
+    />
+    <meta property="og:url" content="%VITE_SITE_URL%" />
+    <meta property="og:image" content="%VITE_SITE_URL%/devkrafto.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DevKrafto Solutions | Web & App Development" />
+    <meta
+      name="twitter:description"
+      content="DevKrafto Solutions builds fast, modern websites and web apps. Design, development, SEO, performance, and ongoing support."
+    />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/devkrafto.png" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevKrafto Solutions",
+        "url": "%VITE_SITE_URL%",
+        "logo": "%VITE_SITE_URL%/devkrafto.png"
+      }
+    </script>
   </head>
   <body>
     <div id="root" class="mesh-gradient h-screen"></div>
