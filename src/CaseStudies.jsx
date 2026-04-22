@@ -111,11 +111,11 @@ const CaseStudies = () => {
             />
 
             <div className="absolute inset-0  bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-8">
-              <div className="transform  translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="font-['Space_Grotesk']  text-gray-100 text-xl lg:text-xl tracking-[0.3em] uppercase mb-3 block  font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+              <div className="translate-y-0 md:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="font-['Space_Grotesk']  text-gray-100 text-xs md:text-sm lg:text-l tracking-[0.3em] uppercase mb-3 md:mb-3 block  font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {project.category}
                 </span>
-                <h3 className="font-['Space_Grotesk'] text-3xl lg:text-4xl font-bold  text-purple-500 mb-3 leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                <h3 className="font-['Space_Grotesk'] text-2xl lg:text-4xl font-bold  text-purple-500 mb-3  leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {project.title}
                 </h3>
                 <p className="text-gray-400 text-xs max-w-xs mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 leading-relaxed line-clamp-2 font-medium">

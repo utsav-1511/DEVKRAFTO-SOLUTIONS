@@ -107,10 +107,10 @@ const HeroSection = () => {
       {isManifestoOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 backdrop-blur-xl bg-black/80">
           <div className="absolute inset-0" onClick={() => setIsManifestoOpen(false)}></div>
-          <div className="relative w-full max-w-3xl bg-neutral-900/50 border border-white/10 p-8 md:p-16 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative w-full max-w-3xl max-h-[90vh] flex flex-col bg-neutral-900/50 border border-white/10 p-8 md:p-16 rounded-3xl overflow-hidden shadow-2xl">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#BA9EFF]/20 rounded-full blur-[100px]"></div>
-            <button onClick={() => setIsManifestoOpen(false)} className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">✕</button>
-            <div className="relative z-10 space-y-8">
+            <button onClick={() => setIsManifestoOpen(false)} className="absolute top-6 right-6  md:top-8 md:right-8 text-white/50 hover:text-white transition-colors z-20 p-2">✕</button>
+            <div className="relative z-10 p-8 md:p-16 space-y-8 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
               <div className="text-[#BA9EFF] font-bold tracking-[0.3em] uppercase text-[10px]">Protocol: DevKrafto Manifesto</div>
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">Engineering is not <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#BA9EFF] to-[#d3c2ff]">just a service.</span></h2>
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
@@ -118,7 +118,7 @@ const HeroSection = () => {
                 <p><span className="text-white font-bold">02.</span> We reject "black box" development. Transparency is the foundation of digital power.</p>
                 <p><span className="text-white font-bold">03.</span> Performance is our religion. Every millisecond we save for your users is a victory.</p>
               </div>
-              <button onClick={() => setIsManifestoOpen(false)} className="pt-8 text-[#BA9EFF] font-bold uppercase tracking-widest text-[10px] flex items-center gap-2 group/btn">End Transmission <span className="group-hover/btn:translate-x-2 transition-transform">→</span></button>
+              <button onClick={() => setIsManifestoOpen(false)} className=" pt-8 text-[#BA9EFF] font-bold uppercase tracking-widest text-[10px] flex items-center gap-2 group/btn pb-4">End Transmission <span className="group-hover/btn:translate-x-2 transition-transform">→</span></button>
             </div>
           </div>
         </div>
