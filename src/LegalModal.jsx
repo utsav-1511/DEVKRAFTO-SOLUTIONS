@@ -33,7 +33,7 @@ const LegalModal = ({ type, isOpen, onClose, content }) => {
           </div>
 
           {/* Content Area */}
-          <div className="p-8 lg:p-12 overflow-y-auto no-scrollbar text-gray-400 leading-relaxed space-y-8">
+          <div className="p-8 lg:p-12 overflow-y-auto no-scrollbar text-gray-400 leading-relaxed space-y-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <div className="flex justify-between text-[10px] font-mono text-purple-400 uppercase tracking-[0.3em]">
               <span>DevKrafto Solutions</span>
               <span>Effective: 2026</span>
