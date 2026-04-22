@@ -1,7 +1,9 @@
-import React, { useRef } from 'react'; // Added useRef
+import React, { useRef, useState } from 'react'; // Added useRef
+import ProjectManifesto from './ProjectManifesto';
 
 const CaseStudies = () => {
-  const scrollRef = useRef(null); // Create a reference for the scroll container
+  const scrollRef = useRef(null);
+  const [selectedProject, setSelectedProject] = useState(null); // Create a reference for the scroll container
 
   // Function to handle scroll logic
   const scroll = (direction) => {
@@ -16,43 +18,51 @@ const CaseStudies = () => {
   };
 
   const projects = [
-    {
-      title: "Nova Vault",
-      category: "Fintech Evolution",
-      desc: "A quantum-secured wealth management platform with real-time asset synchronization.",
-      img: "https://images.pexels.com/photos/35638979/pexels-photo-35638979.jpeg"
-    },
-    {
-      title: "Aether Core",
-      category: "AI Integration",
-      desc: "Predictive logistics engine managing supply chains for Fortune 500 tech retailers.",
-      img: "https://images.pexels.com/photos/34804017/pexels-photo-34804017.jpeg"
-    },
-    {
-      title: "Zenith Cloud",
-      category: "SaaS Platform",
-      desc: "Cloud-native infrastructure monitoring with 3D spatial reporting and anomaly detection.",
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2944&auto=format&fit=crop"
-    },
-    {
-      title: "Vertex Mesh",
-      category: "Decentralized Systems",
-      desc: "Hyper-local mesh network protocol for offline peer-to-peer communication in high-density zones.",
-      img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
-    },
-    {
-      title: "Titan Bio-OS",
-      category: "Health-Tech SaaS",
-      desc: "Real-time biometric monitoring and pharmaceutical supply chain tracking with multi-tenant API security.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
-    },
-    {
-      title: "Spectral Engine",
-      category: "Spatial AI",
-      desc: "Deep-learning computer vision system for autonomous industrial drone navigation and hazard mapping.",
-      img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2940&auto=format&fit=crop"
-    }
-  ];
+  {
+    title: "EcoQuest",
+    category: "Gamified Ed-Tech",
+    stack: ["React.js", "Vite", "Node.js", "Tailwind"],
+    github:"https://github.com/Anuragkumar262/PlanetPoint-EcoQuest",
+    desc: "A gamified environmental education platform developed for the Smart India Hackathon (SIH), focusing on scalable user engagement.",
+    img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2813&auto=format&fit=crop"
+  },
+  {
+    title: "ResQLink",
+    category: "Disaster Management",
+    stack: ["Android Studio", "Kotlin", "Java", "BLE"],
+    desc: "A mesh-networked communication system using BLE for offline emergency messaging, engineered for HackIndia Spark 6.",
+    img: "https://images.unsplash.com/photo-1504151932400-72d4384f04b3?q=80&w=2940&auto=format&fit=crop"
+  },
+  {
+    title: "Med-SaaS Protocol",
+    category: "Health-Tech SaaS",
+    stack: ["Node.js", "React.js", "JavaScript"],
+    
+    desc: "A multi-tenant medication tracking system with caregiver workflows and a high-security PostgreSQL backend architecture.",
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2940&auto=format&fit=crop"
+  },
+  {
+    title: "LM Advertising",
+    category: "Agency Landing Page",
+    stack: ["Node.js", "React.js", "MongoDB"],
+    desc: "A premium, high-performance landing page for a Prayagraj-based agency featuring interactive UI and scroll-driven animations.",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+  },
+  {
+    title: "Avian Core",
+    category: "Game Engineering",
+    stack: ["C#", "Unity", "Physics Engine"],
+    desc: "A physics-based game built in Unity/C#, utilizing object pooling and parallax systems for optimized performance.",
+    img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2940&auto=format&fit=crop"
+  },
+  {
+    title: "Neural Logic",
+    category: "AI Concept",
+    stack: ["Python", "AI/ML", "PyTorch"],
+    desc: "An internal R&D project exploring custom LLM integrations and predictive data models for enterprise automation.",
+    img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2832&auto=format&fit=crop"
+  }
+];
 
   return (
     <section className="py-15 bg-transparent relative overflow-hidden border-y border-white/[0.03] bg-gradient-to-tr from-black/[0.1] via-neutral-900/[0.5] to-black/[0.1] backdrop-blur-[2px]">
@@ -100,18 +110,18 @@ const CaseStudies = () => {
               alt={project.title}
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-8">
-              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="font-['Space_Grotesk'] text-purple-400 text-[12px] tracking-[0.3em] uppercase mb-3 block font-bold">
+            <div className="absolute inset-0  bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-8">
+              <div className="transform  translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="font-['Space_Grotesk']  text-gray-100 text-xl lg:text-xl tracking-[0.3em] uppercase mb-3 block  font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {project.category}
                 </span>
-                <h3 className="font-['Space_Grotesk'] text-2xl lg:text-3xl font-bold text-white mb-2">
+                <h3 className="font-['Space_Grotesk'] text-3xl lg:text-4xl font-bold  text-purple-500 mb-3 leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-xs max-w-xs mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 leading-relaxed line-clamp-2">
+                <p className="text-gray-400 text-xs max-w-xs mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 leading-relaxed line-clamp-2 font-medium">
                   {project.desc}
                 </p>
-                <button className="text-white font-bold text-[10px] uppercase tracking-widest flex items-center gap-2 group/btn">
+                <button onClick={() => setSelectedProject(project)} className="text-white font-bold text-[10px] uppercase tracking-widest flex items-center gap-2 group/btn">
                   View Case 
                   <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -122,6 +132,7 @@ const CaseStudies = () => {
           </div>
         ))}
       </div>
+      <ProjectManifesto project={selectedProject} isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 };

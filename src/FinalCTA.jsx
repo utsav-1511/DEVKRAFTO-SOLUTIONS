@@ -1,5 +1,13 @@
 import React from 'react';
 
+
+const handleScrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
 const FinalCTA = () => {
   return (
     <section className="py-40 bg-transparent relative overflow-hidden">
@@ -17,7 +25,7 @@ const FinalCTA = () => {
           {/* External glow that appears on hover */}
           <div className="absolute -inset-1 bg-purple-500 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
           
-          <button className="relative bg-white text-black font-['Space_Grotesk'] font-black uppercase tracking-[0.2em] px-16 py-8 rounded-full text-xl hover:scale-105 active:scale-95 transition-all duration-500">
+          <button onClick={handleScrollToContact} className="relative bg-white text-black font-['Space_Grotesk'] font-black uppercase tracking-[0.2em] px-16 py-8 rounded-full text-xl hover:scale-105 active:scale-95 transition-all duration-500">
             Initiate Protocol
           </button>
         </div>

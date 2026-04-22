@@ -1,6 +1,34 @@
 import React from 'react';
-
+import { useState }from 'react';
 const Contact = () => {
+  const [status, setStatus] = useState("INITIATE PROTOCOL");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("SYNCHRONIZING..."); // Premium loading state
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY); // Apni key yahan daalo
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("PROTOCOL INITIATED ✓");
+        e.target.reset();
+        setTimeout(() => setStatus("INITIATE PROTOCOL"), 3000);
+      } else {
+        setStatus("SYSTEM ERROR");
+        setTimeout(() => setStatus("INITIATE PROTOCOL"), 3000);
+      }
+    } catch (error) {
+      setStatus("OFFLINE ERROR");
+    }
+  };
   return (
     <section id="contact" className="py-32 relative bg-transparent overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
@@ -21,7 +49,7 @@ const Contact = () => {
               </div>
               <div>
                 <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">Email Us</div>
-                <div className="text-lg font-['Space_Grotesk'] font-bold text-white">hq@devkrafto.solutions</div>
+                <div className="text-lg font-['Space_Grotesk'] font-bold text-white">devkraftosolutions@gmail.com</div>
               </div>
             </div>
 
@@ -31,7 +59,7 @@ const Contact = () => {
               </div>
               <div>
                 <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">Base Operations</div>
-                <div className="text-lg font-['Space_Grotesk'] font-bold text-white">Tech District, Level 42</div>
+                <div className="text-lg font-['Space_Grotesk'] font-bold text-white">Knowledge Park-2, Greater Noida, G.B Nagar, U.P - 201310</div>
               </div>
             </div>
           </div>
@@ -43,7 +71,8 @@ const Contact = () => {
           <div className="absolute -inset-4 bg-purple-400/10 rounded-[2.5rem] blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-1000" />
           
           <div className="relative bg-white/[0.02] backdrop-blur-xl p-10 lg:p-12 rounded-[2rem] border border-white/10 shadow-2xl">
-            <form className="space-y-12">
+            <form onSubmit={handleSubmit} className="space-y-12">
+              <input type="hidden" name="subject" value="New Protocol Initiated - DevKrafto" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Full Name */}
                 <div className="relative z-0 w-full group">
@@ -60,32 +89,33 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Project Select */}
                 <div className="relative z-0 w-full group">
-                  <select className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-white/20 focus:outline-none focus:ring-0 focus:border-purple-400 peer" required>
+                  <select name="project_type" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-white/20 focus:outline-none focus:ring-0 focus:border-purple-400 peer" required>
                     <option value="" className="bg-black">Project Type</option>
-                    <option value="web" className="bg-black">Web Development</option>
-                    <option value="app" className="bg-black">Mobile App</option>
-                    <option value="ai" className="bg-black">AI Integration</option>
+                    <option value="Web Development" className="bg-black">Web Development</option>
+                    <option value="Mobile App" className="bg-black">Mobile App</option>
+                    <option value="AI Integration" className="bg-black">AI Integration</option>
                   </select>
                 </div>
                 {/* Budget Select */}
                 <div className="relative z-0 w-full group">
-                  <select className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-white/20 focus:outline-none focus:ring-0 focus:border-purple-400 peer" required>
+                  <select name="budget_tier" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-white/20 focus:outline-none focus:ring-0 focus:border-purple-400 peer" required>
                     <option value="" className="bg-black">Budget Tier</option>
-                    <option value="25k" className="bg-black">$25k - $50k</option>
-                    <option value="50k" className="bg-black">$50k - $150k</option>
-                    <option value="max" className="bg-black">$150k+</option>
+                    <option value="BASIC" className="bg-black">BASIC</option>
+                    <option value="STANDARD" className="bg-black">STANDARD</option>
+                    <option value="PREMIUM" className="bg-black">PREMIUM</option>
                   </select>
                 </div>
               </div>
 
               {/* Message */}
               <div className="relative z-0 w-full group">
-                <textarea rows="4" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-white/20 appearance-none focus:outline-none focus:ring-0 focus:border-purple-400 peer resize-none" placeholder=" " required></textarea>
-                <label className="peer-focus:font-medium absolute text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 uppercase tracking-widest font-bold">The Challenge</label>
+                <textarea name="message" rows="4" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-white/20 appearance-none focus:outline-none focus:ring-0 focus:border-purple-400 peer resize-none" placeholder=" " required></textarea>
+                <label className="peer-focus:font-medium absolute text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 uppercase tracking-widest font-bold">The Overview</label>
               </div>
 
               <button className="w-full bg-purple-400 text-black font-['Space_Grotesk'] font-black uppercase tracking-[0.2em] py-6 rounded-xl hover:bg-purple-400 active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)]">
-                Initiate Protocol
+                
+                {status}
               </button>
             </form>
           </div>
